@@ -1,3 +1,2 @@
 SENTENCE_SEPARATORS = {".", "?", "!"}
 WORD_SEPARATORS = {*SENTENCE_SEPARATORS, " ", ",", "\n", "\0"}
-AMOUNT_OF_SHOWN = 10
