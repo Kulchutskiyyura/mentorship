@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from constants import WORD_SEPARATORS
+from constants import WORD_SEPARATORS, AMOUNT_OF_SHOWN
 from separator import Separator
 from statistic_containers import SentenceStatistic, WordStatistic, TextStatistic, CharacterStatistic
 
@@ -68,12 +68,12 @@ class WordStatisticCalculator(StatisticCalculator):
         self._get_palindrome_words()
         self._statistic.number = self._get_length()
         self._statistic.average_length = self._get_average_length()
-        self._statistic.longest = self._get_longest(10)
-        self._statistic.shortest = self._get_shortest(10)
-        self._statistic.most_used = self._get_most_used(10)
+        self._statistic.longest = self._get_longest(AMOUNT_OF_SHOWN)
+        self._statistic.shortest = self._get_shortest(AMOUNT_OF_SHOWN)
+        self._statistic.most_used = self._get_most_used(AMOUNT_OF_SHOWN)
 
         palindrome_words = WordStatisticCalculator(self._palindrome_words)
-        self._statistic.longest_palindrome = palindrome_words._get_longest(10)
+        self._statistic.longest_palindrome = palindrome_words._get_longest(AMOUNT_OF_SHOWN)
         self._statistic.number_palindrome = palindrome_words._get_length()
 
         return self._statistic
@@ -104,8 +104,8 @@ class SentenceStatisticCalculator(StatisticCalculator):
     def get_statistic(self):
         self._statistic.number = self._get_length()
         self._statistic.average_words_number = self._get_average_words_number()
-        self._statistic.longest = self._get_longest(10)
-        self._statistic.shortest = self._get_shortest(10)
+        self._statistic.longest = self._get_longest(AMOUNT_OF_SHOWN)
+        self._statistic.shortest = self._get_shortest(AMOUNT_OF_SHOWN)
 
         return self._statistic
 
