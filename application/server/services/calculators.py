@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
-from constants import WORD_SEPARATORS, AMOUNT_OF_SHOWN
-from separator import Separator
-from statistic_containers import SentenceStatistic, WordStatistic, TextStatistic, CharacterStatistic
+from application.server.constants import WORD_SEPARATORS, AMOUNT_OF_SHOWN
+from application.server.services.separator import Separator
+from application.server.services.statistic_containers import SentenceStatistic, WordStatistic, TextStatistic, CharacterStatistic
 
 
 class StatisticCalculator(metaclass=ABCMeta):
@@ -143,7 +143,6 @@ class TextStatisticCalculator(StatisticCalculator):
         return self._data[::-1]
 
     def _reverse_with_order(self):
-        # need some fix
         separator = Separator(self._data)
         words = separator.run(WORD_SEPARATORS, include_separators=True)
         for index, word in enumerate(words):
