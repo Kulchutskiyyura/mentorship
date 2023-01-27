@@ -22,11 +22,8 @@ jobs:
           python-version: 3.9
       - name: Python Dependency Installation
         run: |
-           python3 -m venv venv
-            . venv/bin/activate
-            - pip install --upgrade pip
-            - pip install poetry
-            - poetry install -v
+            pip install poetry
+            poetry install -v
       - name: Install plugin
         run: pip install pytest-github-actions-annotate-failures
       - name: Test with pytest
