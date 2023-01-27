@@ -27,6 +27,7 @@ jobs:
             pip install --upgrade pip
             pip install poetry
             poetry install -v
+            pip install flask
       - name: Install plugin
         run: pip install pytest-github-actions-annotate-failures
       - name: Test with pytest
