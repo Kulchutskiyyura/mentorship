@@ -22,8 +22,6 @@ jobs:
           python-version: 3.9
       - name: Python Dependency Installation
         run: |
-            python -m venv venv
-            . venv/bin/activate
             pip install --upgrade pip
             pip install poetry
             poetry install -v
@@ -32,7 +30,7 @@ jobs:
         run: pip install pytest-github-actions-annotate-failures
       - name: Test with pytest
         run: |
-          python -m pytest -vv
+          python -m pytest tests/
       - name: Allure results
         uses: simple-elf/allure-report-action@master
         if: always()
